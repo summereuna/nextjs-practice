@@ -1,9 +1,12 @@
 // 도메인.com/new-meetup
+
+import { Fragment } from "react";
 import Head from "next/head";
 import { useRouter } from "next/router";
+
 import NewMeetupForm from "../../components/meetups/NewMeetupForm";
 
-function newMeetupPage() {
+function NewMeetupPage() {
   const router = useRouter();
 
   //meetupData 받아서
@@ -17,7 +20,7 @@ function newMeetupPage() {
         "Content-Type": "application/json", //JSON 데이터 보내는 것 명확히 하기 위해 작성
       },
     });
-
+    ㄴ;
     //응답 받으면 데이터 얻음
     const data = await response.json();
     // console.log(data);
@@ -27,7 +30,7 @@ function newMeetupPage() {
   };
 
   return (
-    <>
+    <Fragment>
       <Head>
         <title>Add a New Meetup</title>
         <meta
@@ -36,8 +39,8 @@ function newMeetupPage() {
         />
       </Head>
       <NewMeetupForm onAddMeetup={addMeetupHandler} />
-    </>
+    </Fragment>
   );
 }
 
-export default newMeetupPage;
+export default NewMeetupPage;
